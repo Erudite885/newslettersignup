@@ -7,7 +7,7 @@ const App = () => {
 
   return (
     <>
-      <section className='bg-darkgrey flex-grid p-[10%] w-[100%] min-h-[100vh] justify-center align-center'>
+      <section className='flex justify-center items-center w-full min-h-[100vh]'>
         <Newsletter />
         {/* <Success /> */}
       </section>

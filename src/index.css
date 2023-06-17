@@ -11,4 +11,8 @@
   scroll-behavior: smooth;
 }
 
+:root {
+  background-color: hsl(234, 29%, 20%);
+}
+
 

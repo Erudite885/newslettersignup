@@ -5,7 +5,7 @@ import { iconlist } from '../assets/images'
 const Success = () => {
   return (
     
-        <section className='container max-w-[375px] h-auto p-6 bg-white m-auto rounded-xl'>
+        <section className='max-w-[375px] h-auto p-6 bg-white rounded-xl '>
             {/* insert icon here */}
             
             {/* <img src={image} alt='image' className='w-[150px] h-[150px] object-fit rounded-full' /> */}
