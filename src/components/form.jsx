@@ -7,6 +7,20 @@ const Form = () => {
 
   const emailChangeHandler = (e) => {
     setEnteredEmail(e.target.value);
+
+    if (e.target.value.trim() !== "" || enteredEmail.includes("@")) {
+      setEnteredEmailIsValid(true);
+      console.log("valid email");
+    }
+  };
+
+  const emailInputBlurHandler = (e) => {
+    setEnteredEmailTouched(true);
+
+    if (enteredEmail.trim === "" || !enteredEmail.includes("@")) {
+      setEnteredEmailIsValid(false);
+      console.log("invalid email");
+    }
   };
 
   const formSubmitHandler = (e) => {
@@ -41,6 +55,7 @@ const Form = () => {
             id="email"
             placeholder="email@company.com"
             onChange={emailChangeHandler}
+            onBlur={emailInputBlurHandler}
             value={enteredEmail}
             className="p-2 rounded"
           />
