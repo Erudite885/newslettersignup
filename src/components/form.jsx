@@ -1,66 +1,39 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from "react";
 
 const Form = () => {
-  const [enteredEmail, setEnteredEmail] = useState('');
-  const [enteredEmailTouched, setEnteredEmailTouched] = useState(false)
-  
-  const enteredEmailValid = enteredEmail.includes('@');
-  const enteredEmailInvalid = !enteredEmailValid && enteredEmailTouched;
+  const [enteredEmail, setEnteredEmail] = useState("");
 
-  let formIsValid = false;
- 
-  if (enteredEmailValid){
-    formIsValid = true
-  }
-
-  const enteredEmailChangeHandler = (e) => {
+  const emailChangeHandler = (e) => {
     setEnteredEmail(e.target.value);
-  }
-
-  const enteredEmailBlurHandler = (e) => {
-    setEnteredEmailTouched(true);
-  }
+  };
 
   const formSubmitHandler = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
-    if (!enteredEmailValid){
-      return;
-    }
-
-    setEnteredEmail('');
-    setEnteredEmailTouched(false);
     console.log(enteredEmail);
-  }
-
-
-
-  const nameInputClasses = enteredEmail ? 'valid' : 'invalid'
+    setEnteredEmail("");
+  };
 
   return (
-    <section className='my-4'>
-      <form onSubmit={formSubmitHandler} className='flex flex-col'>
-        <div className={`${nameInputClasses}`}>
-          <label htmlFor='email' className='text-darkgrey py-2 font-bold'>Email address</label>
-          <input 
-            type='email' 
-            id='email' 
-            value={enteredEmail} 
-            onChange={enteredEmailChangeHandler} 
-            onBlur={enteredEmailBlurHandler} 
-            className={`${nameInputClasses} border-2 px-4 py-2 outline-none rounded-[6px]`} placeholder='email@company.com'
+    <section className="my-4">
+      <form onSubmit={formSubmitHandler} className="flex flex-col">
+        <div className="form-control flex flex-col">
+          <label htmlFor="email">Email address</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="email@company.com"
+            onChange={emailChangeHandler}
+            value={enteredEmail}
+            className="p-2 rounded"
           />
-          {enteredEmailInvalid && (
-            <p className='text-tomato'>Please enter correct email </p>
-          )}
-
         </div>
-         <div>
-          <button disabled={!formIsValid} className='bg-darkgrey rounded py-2 text-grey font-bold p-2 mt-4'>subscribe to monthly newsletter</button>
-         </div>
+        <div className="form-actions bg-darkgrey text-white text-center p-2 rounded mt-3">
+          <button className="">Subscribe to monthly newsletter</button>
+        </div>
       </form>
     </section>
-  )
-}
+  );
+};
 
-export default Form
+export default Form;
