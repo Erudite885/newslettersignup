@@ -16,3 +16,8 @@
 }
 
 
+.invalid input {
+  border: 1px solid #b40e0e;
+  background: hsl(4, 100%, 67%);
+}
+
