@@ -2,25 +2,23 @@ import React, { useState } from "react";
 
 const Form = () => {
   const [enteredEmail, setEnteredEmail] = useState("");
-  const [enteredEmailIsValid, setEnteredEmailIsValid] = useState(false);
   const [enteredEmailTouched, setEnteredEmailTouched] = useState(false);
+
+  const enteredEmailIsValid = enteredEmail.trim() !== "";
+  const emailInputIsInvalid = !enteredEmailIsValid && enteredEmailTouched;
+
+  let formIsValid = false;
+
+  if (enteredEmailIsValid) {
+    formIsValid = true;
+  }
 
   const emailChangeHandler = (e) => {
     setEnteredEmail(e.target.value);
-
-    if (e.target.value.trim() !== "" || enteredEmail.includes("@")) {
-      setEnteredEmailIsValid(true);
-      console.log("valid email");
-    }
   };
 
   const emailInputBlurHandler = (e) => {
     setEnteredEmailTouched(true);
-
-    if (enteredEmail.trim === "" || !enteredEmail.includes("@")) {
-      setEnteredEmailIsValid(false);
-      console.log("invalid email");
-    }
   };
 
   const formSubmitHandler = (e) => {
@@ -28,18 +26,15 @@ const Form = () => {
 
     setEnteredEmailTouched(true);
 
-    if (enteredEmail.trim === "" || !enteredEmail.includes("@")) {
-      setEnteredEmailIsValid(false);
+    if (!enteredEmailIsValid || !enteredEmail.includes("@")) {
       console.log("invalid email");
       return;
     }
 
-    setEnteredEmailIsValid(true);
     console.log(enteredEmail);
     setEnteredEmail("");
+    setEnteredEmailTouched(false);
   };
-
-  const emailInputIsInvalid = !enteredEmailIsValid && enteredEmailTouched;
 
   const emailInputClasses = emailInputIsInvalid
     ? "form-control invalid"
@@ -51,7 +46,7 @@ const Form = () => {
         <div className={`${emailInputClasses} flex flex-col`}>
           <label htmlFor="email">Email address</label>
           <input
-            type="text"
+            type="email"
             id="email"
             placeholder="email@company.com"
             onChange={emailChangeHandler}
@@ -60,11 +55,13 @@ const Form = () => {
             className="p-2 rounded"
           />
           {emailInputIsInvalid && (
-            <p className="text-tomato">Please input correct email address</p>
+            <p className="text-tomato">Please enter valid email address</p>
           )}
         </div>
         <div className="form-actions bg-darkgrey text-white text-center p-2 rounded mt-3">
-          <button className="">Subscribe to monthly newsletter</button>
+          <button disabled={!formIsValid} className="cursor-pointer">
+            Subscribe to monthly newsletter
+          </button>
         </div>
       </form>
     </section>
