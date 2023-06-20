@@ -38,7 +38,7 @@ const Form = () => {
     <section className="my-5">
       <form onSubmit={formSubmitHandler} className="flex flex-col">
         <div className={`${emailInputClasses} flex flex-col `}>
-          <label htmlFor="email" className="mb-2 mx-4">Email address</label>
+          <label htmlFor="email" className="mb-2 mx-4 font-medium">Email address</label>
           <input
             type="email"
             id="email"
