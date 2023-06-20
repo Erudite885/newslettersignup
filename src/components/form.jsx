@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useInput from "../hooks/use-input";
 
-const Form = (props) => {
+const Form = () => {
   const {
     value: enteredEmail,
     isValid: enteredEmailIsValid,
@@ -35,10 +35,10 @@ const Form = (props) => {
     : "form-control";
 
   return (
-    <section className="my-4">
+    <section className="my-5">
       <form onSubmit={formSubmitHandler} className="flex flex-col">
-        <div className={`${emailInputClasses} flex flex-col`}>
-          <label htmlFor="email">Email address</label>
+        <div className={`${emailInputClasses} flex flex-col `}>
+          <label htmlFor="email" className="mb-2 mx-4">Email address</label>
           <input
             type="email"
             id="email"
@@ -46,13 +46,13 @@ const Form = (props) => {
             onChange={emailChangeHandler}
             onBlur={emailInputBlurHandler}
             value={enteredEmail}
-            className="p-2 rounded"
+            className="p-2 mx-4 w-[90%] rounded"
           />
           {emailInputHasError && (
             <p className="text-tomato">Please enter valid email address</p>
           )}
         </div>
-        <div className="form-actions bg-darkgrey text-white text-center p-2 rounded mt-3">
+        <div className="form-actions bg-darkgrey text-white text-center p-2 mx-4 rounded mt-3">
           <button disabled={!formIsValid} className="cursor-pointer">
             Subscribe to monthly newsletter
           </button>
