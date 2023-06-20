@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import useInput from "../hooks/use-input";
 
-const Form = () => {
-  const [enteredEmail, setEnteredEmail] = useState("");
-  const [enteredEmailTouched, setEnteredEmailTouched] = useState(false);
-
-  const enteredEmailIsValid = enteredEmail.trim() !== "";
-  const emailInputIsInvalid = !enteredEmailIsValid && enteredEmailTouched;
+const Form = (props) => {
+  const {
+    value: enteredEmail,
+    isValid: enteredEmailIsValid,
+    hasError: emailInputHasError,
+    valueChangeHandler: emailChangeHandler,
+    inputBlurHandler: emailInputBlurHandler,
+    reset: resetEmailInput,
+  } = useInput((value) => value.includes("@"));
 
   let formIsValid = false;
 
@@ -13,30 +17,20 @@ const Form = () => {
     formIsValid = true;
   }
 
-  const emailChangeHandler = (e) => {
-    setEnteredEmail(e.target.value);
-  };
-
-  const emailInputBlurHandler = (e) => {
-    setEnteredEmailTouched(true);
-  };
-
   const formSubmitHandler = (e) => {
     e.preventDefault();
-
-    setEnteredEmailTouched(true);
 
     if (!enteredEmailIsValid || !enteredEmail.includes("@")) {
       console.log("invalid email");
       return;
     }
 
+    resetEmailInput();
+
     console.log(enteredEmail);
-    setEnteredEmail("");
-    setEnteredEmailTouched(false);
   };
 
-  const emailInputClasses = emailInputIsInvalid
+  const emailInputClasses = emailInputHasError
     ? "form-control invalid"
     : "form-control";
 
@@ -54,7 +48,7 @@ const Form = () => {
             value={enteredEmail}
             className="p-2 rounded"
           />
-          {emailInputIsInvalid && (
+          {emailInputHasError && (
             <p className="text-tomato">Please enter valid email address</p>
           )}
         </div>

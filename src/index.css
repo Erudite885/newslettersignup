@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -15,7 +15,7 @@
   background-color: hsl(234, 29%, 20%);
 }
 
-.form-control input{
+.form-control input {
   font: inherit;
   padding: 0.5rem;
   border-radius: 4px;
@@ -30,6 +30,15 @@
   background-color: #e0d4fd;
 }
 
+/* button:disabled,
+button:disabled:hover,
+button:disabled:active {
+  background: #b3a7a7;
+  color: #3f3f3f;
+  border-color: #b3a7a7;
+  cursor: not-allowed;
+} */
+
 .invalid input {
   border: 1px solid #b40e0e;
   background: hsl(4, 100%, 67%);
@@ -39,4 +48,3 @@
   border-color: #ff8800;
   background-color: #fbe8d2;
 }
-
