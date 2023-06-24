@@ -34,23 +34,33 @@ const Form = () => {
     ? "form-control invalid"
     : "form-control";
 
+  // const errPlaceholder = () => {
+  //   return ;
+  // };
+
   return (
     <section className="my-5">
       <form onSubmit={formSubmitHandler} className="flex flex-col">
-        <div className={`${emailInputClasses} flex flex-col `}>
-          <label htmlFor="email" className="mb-2 mx-4 font-medium">Email address</label>
+        <div className={`${emailInputClasses} relative flex flex-col `}>
+          <label htmlFor="email" className="mb-2 mx-4 font-medium">
+            Email address
+          </label>
+          {emailInputHasError && (
+            <p className="text-tomato absolute right-[3%] mx-4 my-1 text-[14px]">
+              Valid email required
+            </p>
+          )}
           <input
             type="email"
             id="email"
-            placeholder="email@company.com"
+            placeholder={
+              emailInputHasError ? "ash#loremcompany.com" : "email@company.com"
+            }
             onChange={emailChangeHandler}
             onBlur={emailInputBlurHandler}
             value={enteredEmail}
             className="p-2 mx-4 w-[90%] rounded"
           />
-          {emailInputHasError && (
-            <p className="text-tomato mx-4 my-1 text-[14px]">Please enter valid email address</p>
-          )}
         </div>
         <div className="form-actions bg-darkgrey text-white text-center p-2 mx-4 rounded mt-3">
           <button disabled={!formIsValid} className="cursor-pointer">

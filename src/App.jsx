@@ -7,9 +7,9 @@ const App = () => {
 
   return (
     <>
-      <section className='flex justify-center items-center w-full min-h-[100vh] '>
+      <section className='flex flex-col justify-center items-center w-full min-h-[100vh] '>
         <Newsletter />
-        {/* <Success /> */}
+        <Success />
       </section>
     </>
   )
