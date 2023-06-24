@@ -49,7 +49,7 @@ const Form = () => {
             className="p-2 mx-4 w-[90%] rounded"
           />
           {emailInputHasError && (
-            <p className="text-tomato">Please enter valid email address</p>
+            <p className="text-tomato mx-4 my-1 text-[14px]">Please enter valid email address</p>
           )}
         </div>
         <div className="form-actions bg-darkgrey text-white text-center p-2 mx-4 rounded mt-3">
