@@ -39,3 +39,7 @@
   border-color: #ff8800;
   background-color: #fbe8d2;
 }
+
+ /* button:active, button:focus {
+  background-color: linear-gradient(from rgb(241, 104, 79) to rgb(241, 49, 49));
+} */

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import useInput from "../hooks/use-input";
+import { Link, useNavigate } from "react-router-dom";
 
-const Form = () => {
+const Form = (props) => {
   const {
     value: enteredEmail,
     isValid: enteredEmailIsValid,
@@ -25,6 +26,8 @@ const Form = () => {
       return;
     }
 
+    // props.onEnteredEmail(enteredEmail);
+
     resetEmailInput();
 
     console.log(enteredEmail);
@@ -34,9 +37,8 @@ const Form = () => {
     ? "form-control invalid"
     : "form-control";
 
-  // const errPlaceholder = () => {
-  //   return ;
-  // };
+  const navigate = useNavigate();
+  navigate("/success", { replace: true });
 
   return (
     <section className="my-5">
@@ -62,8 +64,10 @@ const Form = () => {
             className="p-2 mx-4 w-[90%] rounded"
           />
         </div>
-        <div className="form-actions bg-darkgrey text-white text-center p-2 mx-4 rounded mt-3">
-          <button disabled={!formIsValid} className="cursor-pointer">
+        <div
+          className={` form-actions bg-darkgrey text-white text-center p-2 mx-4 rounded mt-3`}
+        >
+          <button className="cursor-pointer">
             Subscribe to monthly newsletter
           </button>
         </div>

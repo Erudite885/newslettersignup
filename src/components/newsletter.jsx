@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { iconlist, signupDesktop, signupMobile } from "../assets/images";
 import Form from "./form";
 
-const Newsletter = () => {
+const Newsletter = (props) => {
   const [width, setWidth] = useState(window.innerWidth);
   const breakpoint = 1200;
   const isMobile = width < breakpoint;
@@ -49,7 +49,7 @@ const Newsletter = () => {
             <p> And much more!</p>
           </div>
         </div>
-        <Form />
+        <Form  />
       </div>
       <div className="text-grey">
         <img
