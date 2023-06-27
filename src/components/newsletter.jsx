@@ -14,6 +14,14 @@ const Newsletter = (props) => {
     return () => window.removeEventListener("resize", windowResizeHandler);
   }, []);
 
+  const saveEmailHandler = (enteredEmail) => {
+    const enteredInputEmail = {
+      enteredEmail,
+    };
+    props.onAddEmail(enteredInputEmail)
+    // console.log(enteredInputEmail);
+  };
+
   return (
     <section className="bg-white flex flex-col-reverse lg:flex-row lg:rounded-2xl">
       <div className=" lg:p-6">
@@ -49,7 +57,7 @@ const Newsletter = (props) => {
             <p> And much more!</p>
           </div>
         </div>
-        <Form  />
+        <Form onAddEmailData={saveEmailHandler} />
       </div>
       <div className="text-grey">
         <img

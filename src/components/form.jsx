@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import useInput from "../hooks/use-input";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Form = (props) => {
+  const navigate = useNavigate();
+
   const {
     value: enteredEmail,
     isValid: enteredEmailIsValid,
@@ -26,19 +28,21 @@ const Form = (props) => {
       return;
     }
 
-    // props.onEnteredEmail(enteredEmail);
+    const enteredInputEmail = {
+      name: enteredEmail
+    }
+// console.log(enteredInputEmail.name)
+    props.onAddEmailData(enteredInputEmail.name);
 
+    navigate('/thankyoupage')
     resetEmailInput();
 
-    console.log(enteredEmail);
   };
 
   const emailInputClasses = emailInputHasError
     ? "form-control invalid"
     : "form-control";
 
-  const navigate = useNavigate();
-  navigate("/success", { replace: true });
 
   return (
     <section className="my-5">

@@ -1,29 +1,28 @@
-import { Routes, Route } from "react-router-dom";
-import { Newsletter, Success } from "./components/index";
+import React, { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import ThankYouPage from "./components/thankyoupage";
+import Newsletter from "./components/newsletter";
 
 const App = () => {
-  // const [email, setEmail] = useState([]);
+  const [inputtedEmail, setInputtedEmail] = useState([]);
 
-  // const emailHandler = (enteredEmailInput) => {
-  //   setEmail((prevGoals) => {
-  //     const updatedEmail = [...prevGoals];
-  //     updatedEmail.unshift({
-  //       text: enteredEmailInput,
-  //       id: Math.random().toString,
-  //     });
-  //     return updatedEmail;
-  //   });
-  // };
+  const addEmailHandler = (name) => {
+    setInputtedEmail(name);
+    // console.log("in app.js");
+  };
 
+  console.log(inputtedEmail);
   return (
-    <>
-      <section className="flex flex-col justify-center items-center w-full min-h-[100vh] ">
-        <Routes>
-          <Route path="/" element={<Newsletter />} />
-          <Route path="/success" element={<Success />} />
-        </Routes>
-      </section>
-    </>
+    <Routes>
+      <Route
+        path="/"
+        element={<Newsletter onAddEmail={addEmailHandler} />}
+      ></Route>
+      <Route
+        path="/thankyoupage"
+        element={<ThankYouPage enteredEmail={inputtedEmail} />}
+      ></Route>
+    </Routes>
   );
 };
 

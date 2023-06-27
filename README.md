@@ -1,4 +1,6 @@
-# Frontend Mentors - NEWSLETTERSIGNUP FORM
+# Frontend Mentors - NEWSLETTER SIGNUP FORM
+
+## Using REACTJS, REACT-ROUTER & Tailwind CSS
 
 # Front-end Style Guide
 
