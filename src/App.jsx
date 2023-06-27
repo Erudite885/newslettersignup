@@ -11,18 +11,21 @@ const App = () => {
     // console.log("in app.js");
   };
 
-  console.log(inputtedEmail);
+  // console.log(inputtedEmail);
+
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={<Newsletter onAddEmail={addEmailHandler} />}
-      ></Route>
-      <Route
-        path="/thankyoupage"
-        element={<ThankYouPage enteredEmail={inputtedEmail} />}
-      ></Route>
-    </Routes>
+    <section className="flex items-center justify-center w-full h-[100vh] ">
+      <Routes>
+        <Route
+          path="/"
+          element={<Newsletter onAddEmail={addEmailHandler} />}
+        ></Route>
+        <Route
+          path="/thankyoupage"
+          element={<ThankYouPage enteredEmail={inputtedEmail} />}
+        ></Route>
+      </Routes>
+    </section>
   );
 };
 

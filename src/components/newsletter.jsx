@@ -23,16 +23,16 @@ const Newsletter = (props) => {
   };
 
   return (
-    <section className="bg-white flex flex-col-reverse lg:flex-row lg:rounded-2xl">
-      <div className=" lg:p-6">
-        <h1 className="text-charcoal text-[30px] sm:text-3xl font-bold m-4">
+    <section className="bg-white flex flex-col-reverse lg:flex-row justify-between items-center lg:rounded-2xl">
+      <div className="p-1 lg:p-10">
+        <h1 className="text-charcoal text-[30px] sm:text-3xl font-bold m-2">
           Stay updated!
         </h1>
-        <p className="text-grey text-xs lg:text-normal max-w-[225px] lg:max-w-[280px] m-4">
+        <p className="text-grey text-xs lg:text-normal max-w-[225px] lg:max-w-[280px] m-2">
           Join 60,000+ product managers receiving monthly updates on:
         </p>
-        <div className="flex flex-col max-w-[235px] lg:max-w-[280px]">
-          <div className="flex row text-xs mx-4 mb-2">
+        <div className="flex flex-col max-w-[270px] lg:max-w-[460px]">
+          <div className="flex row text-xs mx-2 mb-2">
             <img
               src={iconlist}
               alt="list image"
@@ -40,7 +40,7 @@ const Newsletter = (props) => {
             />
             <p>Product discovery and building what matters</p>
           </div>
-          <div className="flex row text-xs mx-4 mb-2">
+          <div className="flex row text-xs mx-2 mb-2">
             <img
               src={iconlist}
               alt="list image"
@@ -48,7 +48,7 @@ const Newsletter = (props) => {
             />
             <p>Measuring to ensure updates are a success</p>
           </div>
-          <div className="flex row text-xs mx-4 mb-2">
+          <div className="flex row text-xs mx-2 mb-2">
             <img
               src={iconlist}
               alt="list image"
@@ -63,7 +63,7 @@ const Newsletter = (props) => {
         <img
           src={isMobile ? signupMobile : signupDesktop}
           alt="desktop image"
-          className="w-full h-full"
+          className="w-full h-full lg:p-2"
         />
       </div>
     </section>

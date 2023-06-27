@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useInput from "../hooks/use-input";
 import { useNavigate } from "react-router-dom";
+import Button from "./UI/button";
 
 const Form = (props) => {
   const navigate = useNavigate();
@@ -29,30 +30,28 @@ const Form = (props) => {
     }
 
     const enteredInputEmail = {
-      name: enteredEmail
-    }
-// console.log(enteredInputEmail.name)
+      name: enteredEmail,
+    };
+    // console.log(enteredInputEmail.name)
     props.onAddEmailData(enteredInputEmail.name);
 
-    navigate('/thankyoupage')
+    navigate("/thankyoupage");
     resetEmailInput();
-
   };
 
   const emailInputClasses = emailInputHasError
     ? "form-control invalid"
     : "form-control";
 
-
   return (
     <section className="my-5">
       <form onSubmit={formSubmitHandler} className="flex flex-col">
         <div className={`${emailInputClasses} relative flex flex-col `}>
-          <label htmlFor="email" className="mb-2 mx-4 font-medium">
+          <label htmlFor="email" className="mb-2 mx-2 font-medium">
             Email address
           </label>
           {emailInputHasError && (
-            <p className="text-tomato absolute right-[3%] mx-4 my-1 text-[14px]">
+            <p className="text-tomato absolute right-[3%] mx-2 my-1 text-[14px]">
               Valid email required
             </p>
           )}
@@ -65,15 +64,11 @@ const Form = (props) => {
             onChange={emailChangeHandler}
             onBlur={emailInputBlurHandler}
             value={enteredEmail}
-            className="p-2 mx-4 w-[90%] rounded"
+            className="p-2 w-[95%] rounded"
           />
         </div>
-        <div
-          className={` form-actions bg-darkgrey text-white text-center p-2 mx-4 rounded mt-3`}
-        >
-          <button className="cursor-pointer">
-            Subscribe to monthly newsletter
-          </button>
+        <div className={` p-1  mt-3`}>
+          <Button type="submit">Subscribe to monthly newsletter</Button>
         </div>
       </form>
     </section>
