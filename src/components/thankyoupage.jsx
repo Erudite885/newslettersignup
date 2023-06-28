@@ -9,7 +9,7 @@ const ThankYouPage = ({ enteredEmail }) => {
   console.log(enteredEmail.enteredEmail);
 
   return (
-    <section className="flex flex-col justify-between max-w-[375px] h-[100vh] lg:h-[460px] p-6 lg:p-8 bg-white lg:rounded-xl ">
+    <section className="flex flex-col justify-between max-w-[375px] h-[100vh]  sm:h-[460px] p-6 md:p-8 bg-white md:rounded-xl ">
       <div className="flex flex-col justify-center mt-[60px]">
         <img
           src={iconlist}
@@ -20,7 +20,7 @@ const ThankYouPage = ({ enteredEmail }) => {
           Thanks for <br />
           subscribing!
         </h2>
-        <p className="text-grey font-sans  text-sm mb-6">
+        <p className="text-grey font-sans text-sm mb-6">
           A confirmation email has been sent to <br />{" "}
           <span className="font-bold text-darkgrey ">
             {enteredEmail.enteredEmail}
