@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import useInput from "../hooks/use-input";
 import { useNavigate } from "react-router-dom";
 import Button from "./UI/button";
@@ -67,7 +67,7 @@ const Form = (props) => {
             className="p-2 w-[95%] rounded"
           />
         </div>
-        <div className={` p-1  mt-3`}>
+        <div className={`p-1 mt-3`}>
           <Button type="submit">Subscribe to monthly newsletter</Button>
         </div>
       </form>
